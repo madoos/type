@@ -3,11 +3,12 @@
 const type = require('./lib/core')
 const util = require('./lib/util')
 const extendType = makeFunctions()
+extendType.isArrow = makeIsArrow(extendType)
 
 module.exports = extendType
 
 function makeFunctions () {
-  const typesNames = ['Array', 'Object', 'Date', 'RegExp', 'string', 'number', 'boolean', 'function', 'symbol']
+  const typesNames = ['Array', 'Object', 'Date', 'RegExp', 'NaN', 'undefined', 'string', 'number', 'boolean', 'function', 'symbol']
   return typesNames.reduce(makeTypeFunction, {})
 }
 
@@ -17,3 +18,8 @@ function makeTypeFunction (container, typeName) {
   return container
 }
 
+function makeIsArrow (container) {
+  return function (value) {
+    return container.isFunction(value) && container.isUndefined(value.prototype)
+  }
+}
