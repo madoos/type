@@ -16,7 +16,11 @@ Check the type of objects
  * `.isFunction`
  * `.isArrow`
 
- ## Getting Started
+## Run test
+
+    npm run test:unit:show
+
+## Getting Started
 
 To install:
 
