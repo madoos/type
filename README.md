@@ -25,7 +25,7 @@ To install:
 In your project:
 
 ``` javascript
-const type = require('madoos-type');
+const type = require('madoos-type')
 
 type.isFunction(function(){}) // true
 type.isNumber('1234') // false
