@@ -234,9 +234,9 @@ describe('Test type.isSymbol(value)', function () {
       expect(type.isSymbol([])).to.be.false
   })
 
-   it('type.isSymbol(Symbol()) should to be a true', function () {
-     const sym = Symbol("foo");
-     // expect(type.isFunction(sym)).to.be.true
+   it('type.isSymbol(Symbol("abcd")) should to be a true', function () {
+     const simbol = Symbol('abcd')
+     expect(type.isSymbol(simbol)).to.be.true
   })
 })
 
@@ -262,4 +262,80 @@ describe('Test type.isArrow(value)', function () {
       expect(type.isArrow(() => {})).to.be.true
   })
 
+})
+
+// is
+describe('Test type.is(value)', function () {
+  it('type.is should to be a function', function () {
+      expect(type.is).to.be.a('function')
+  })
+
+  it('type.is({}) should to be a "Object"', function () {
+      expect(type.is({})).to.be.a('string') 
+      expect(type.is({})).to.equal('Object')
+  })
+
+  it('type.is([]) should to be a "Array"', function () {
+      expect(type.is([])).to.be.a('string') 
+      expect(type.is([])).to.equal('Array')
+  })
+
+  it('type.is(new Date()) should to be a "Array"', function () {
+      expect(type.is(new Date())).to.be.a('string') 
+      expect(type.is(new Date())).to.equal('Date')
+  })
+
+
+  it('type.is(new Date()) should to be a "Date"', function () {
+      expect(type.is(new Date())).to.be.a('string') 
+      expect(type.is(new Date())).to.equal('Date')
+  })
+
+  it('type.is( new RegExp()) should to be a "RegExp"', function () {
+      expect(type.is( new RegExp())).to.be.a('string') 
+      expect(type.is( new RegExp())).to.equal('RegExp')
+  })
+
+
+  it('type.is(NaN) should to be a "NaN"', function () {
+      expect(type.is(NaN)).to.be.a('string') 
+      expect(type.is(NaN)).to.equal('NaN')
+  })
+
+  it('type.is(undefined) should to be a "undefined"', function () {
+      expect(type.is(undefined)).to.be.a('string') 
+      expect(type.is(undefined)).to.equal('undefined')
+  })
+
+  it('type.is("abc") should to be a "string"', function () {
+      expect(type.is('abc')).to.be.a('string') 
+      expect(type.is('abc')).to.equal('string')
+  })
+
+  it('type.is(123) should to be a "number"', function () {
+      expect(type.is(123)).to.be.a('string') 
+      expect(type.is(123)).to.equal('number')
+  })
+
+  it('type.is(true) should to be a "boolean"', function () {
+      expect(type.is(true)).to.be.a('string') 
+      expect(type.is(true)).to.equal('boolean')
+  })
+
+  it('type.is(function(){}) should to be a "function"', function () {
+      expect(type.is(function(){})).to.be.a('string') 
+      expect(type.is(function(){})).to.equal('function')
+  })
+
+  it('type.is(() => {}) should to be a "function"', function () {
+      expect(type.is(() => {})).to.be.a('string') 
+      expect(type.is(() => {})).to.equal('function')
+  })
+
+  
+  it('type.is(Symbol("a") should to be a "simbol"', function () {
+      const simbol = Symbol('abc')
+      expect(type.is(simbol)).to.be.a('string') 
+      expect(type.is(simbol)).to.equal('symbol')
+  })
 })

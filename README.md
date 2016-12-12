@@ -33,6 +33,7 @@ type.isNumber('1234') // => false
  * `.isBoolean`
  * `.isFunction`
  * `.isArrow`
+ * `.isSymbol`
 
 ## .is
 
