@@ -2,6 +2,23 @@
 
 Check the type of objects
 
+## Getting Started
+
+To install:
+
+    npm i --save madoos-type
+
+In your project:
+
+``` javascript
+const type = require('madoos-type')
+
+type.is({}) // => 'Object'
+type.isFunction(function(){}) // =>  true
+type.isNumber('1234') // => false
+
+```
+
 ## Funtions
 
  *  `.is`
@@ -40,20 +57,3 @@ Returns a string with the object type
 ## Run cover test
 
     npm run test:cover:show
-
-## Getting Started
-
-To install:
-
-    npm i --save madoos-type
-
-In your project:
-
-``` javascript
-const type = require('madoos-type')
-
-type.is({}) // => 'Object'
-type.isFunction(function(){}) // =>  true
-type.isNumber('1234') // => false
-
-```
