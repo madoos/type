@@ -1,4 +1,5 @@
 'use strict'
+
 const util = require('./lib/util')
 const typeCore = require('./lib/core')
 const results = ['Array', 'Object', 'Date', 'RegExp', 'NaN', 'undefined', 'string', 'number', 'boolean', 'function', 'symbol']
