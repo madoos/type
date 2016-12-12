@@ -1,27 +1,34 @@
 'use strict'
-
-const type = require('./lib/core')
 const util = require('./lib/util')
-const extendType = makeFunctions()
-extendType.is = type
-extendType.isArrow = makeIsArrow(extendType)
+const typeCore = require('./lib/core')
+const results = ['Array', 'Object', 'Date', 'RegExp', 'NaN', 'undefined', 'string', 'number', 'boolean', 'function', 'symbol']
+const type = _extends(makeType(typeCore), results)
+type.isArrow = makeIsArrow(type)
+type.is = typeCore
 
+module.exports = type
 
-module.exports = extendType
-
-function makeFunctions () {
-  const typesNames = ['Array', 'Object', 'Date', 'RegExp', 'NaN', 'undefined', 'string', 'number', 'boolean', 'function', 'symbol']
-  return typesNames.reduce(makeTypeFunction, {})
+function _extends (reducer, fnNames) {
+  return fnNames.reduce(reducer, {})
 }
 
-function makeTypeFunction (container, typeName) {
-  const fnName = `is${util.toUpercase(typeName)}`
-  container[fnName] = util.makeComparator.bind(null, type, typeName)
-  return container
-}
-
-function makeIsArrow (container) {
-  return function (value) {
-    return container.isFunction(value) && container.isUndefined(value.prototype)
+function _comparator (fn, result) {
+  return function (...args) {
+    return fn.apply(this, args) === result
   }
 }
+
+function makeType (typeCore) {
+  return function (type, result) {
+    const fnName = `is${util.toUpercase(result)}`
+    type[fnName] = _comparator(typeCore, result)
+    return type
+  }
+}
+
+function makeIsArrow (type) {
+  return function (value) {
+    return type.isFunction(value) && type.isUndefined(value.prototype)
+  }
+}
+
