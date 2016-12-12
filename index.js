@@ -3,7 +3,9 @@
 const type = require('./lib/core')
 const util = require('./lib/util')
 const extendType = makeFunctions()
+extendType.is = type
 extendType.isArrow = makeIsArrow(extendType)
+
 
 module.exports = extendType
 
