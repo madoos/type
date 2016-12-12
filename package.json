@@ -4,12 +4,12 @@
   "description": "Check the type of objects",
   "main": "index.js",
   "scripts": {
-    "test:linter:show": "./sh/test/linter-show",
-    "test:unit:show": "./sh/test/unit-show",
-    "test:cover:show": "./sh/test/cover-show",
-    "test:linter:report": "./sh/test/linter-report",
-    "test:unit:report": "./sh/test/unit-report",
-    "test:cover:report": "./sh/test/cover-report"
+    "test:linter:show": "./bin/test/linter-show",
+    "test:unit:show": "./bin/test/unit-show",
+    "test:cover:show": "./bin/test/cover-show",
+    "test:linter:report": "./bin/test/linter-report",
+    "test:unit:report": "./bin/test/unit-report",
+    "test:cover:report": "./bin/test/cover-report"
   },
   "repository": {
     "type": "git",
