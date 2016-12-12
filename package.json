@@ -1,6 +1,6 @@
 {
   "name":  "madoos-type",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Check the type of objects",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/madoos/type.git"
   },
-  
+
   "keywords": [
     "lib"
   ],

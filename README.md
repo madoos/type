@@ -4,6 +4,7 @@ Check the type of objects
 
 ## Funtions
 
+ *  `.is`
  * `.isArray`
  * `.isObject`
  * `.isDate`
@@ -11,14 +12,34 @@ Check the type of objects
  * `.isNaN`
  * `.isUndefined`
  * `.isString`
- * `.isNumber` 
+ * `.isNumber`
  * `.isBoolean`
  * `.isFunction`
  * `.isArrow`
 
+## .is
+
+Returns a string with the object type
+
+* 'Array'
+* 'Object'
+* 'Date'
+* 'RegExp'
+* 'NaN',
+* 'undefined'
+* 'string'
+* 'number'
+* 'boolean'
+* 'function'
+* 'symbol'
+
 ## Run test
 
     npm run test:unit:show
+
+## Run cover test
+
+    npm run test:cover:show
 
 ## Getting Started
 
