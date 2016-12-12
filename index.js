@@ -2,8 +2,8 @@
 const util = require('./lib/util')
 const typeCore = require('./lib/core')
 const results = ['Array', 'Object', 'Date', 'RegExp', 'NaN', 'undefined', 'string', 'number', 'boolean', 'function', 'symbol']
-const type = _extends(makeType(typeCore), results)
-type.isArrow = makeIsArrow(type)
+const type = _extends(createIsFunctions(typeCore), results)
+type.isArrow = createIsArrow(type)
 type.is = typeCore
 
 module.exports = type
@@ -18,7 +18,7 @@ function _comparator (fn, result) {
   }
 }
 
-function makeType (typeCore) {
+function createIsFunctions (typeCore) {
   return function (type, result) {
     const fnName = `is${util.toUpercase(result)}`
     type[fnName] = _comparator(typeCore, result)
@@ -26,7 +26,7 @@ function makeType (typeCore) {
   }
 }
 
-function makeIsArrow (type) {
+function createIsArrow (type) {
   return function (value) {
     return type.isFunction(value) && type.isUndefined(value.prototype)
   }
