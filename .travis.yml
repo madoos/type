@@ -2,4 +2,4 @@
 language: node_js
 node_js:
   - 6.1
-script: npm run test:linter:show
+script: npm run test:unit:show
