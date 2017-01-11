@@ -2,6 +2,8 @@
 
 Check the type of objects
 
+[![Build Status](https://travis-ci.org/madoos/type.svg?branch=master)](https://travis-ci.org/madoos/type)
+
 ## Getting Started
 
 To install:
