@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:linter:show && npm run test:unit:show",
-    "test:report": "npm run test:linter:report && npm run test:unit:report && test:cover:report",
+    "test:report": "npm run test:linter:report && npm run test:unit:report && npm run test:cover:report",
     "test:linter:show": "./bin/test/linter-show",
     "test:unit:show": "./bin/test/unit-show",
     "test:cover:show": "./bin/test/cover-show",
