@@ -9,8 +9,8 @@ def getPackageVersion(){
 
 node {
 
-    def nodeHome = tool name: 'node_v_6.3.1', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-    env.PATH = '${nodeHome}/bin:${env.PATH}'
+    def nodeHome = tool name: 'node:v6', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+    env.PATH = "${nodeHome}/bin:${env.PATH}"
 
     stage 'Check Environment'
     sh 'node -v'
