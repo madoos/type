@@ -1,37 +1,24 @@
 #!groovy
 
-def getPackageVersion(){
-  return sh (
-    script: 'cat package.json | grep version | head -1 | awk -F: \'{ print $2 }\' | sed \'s/[\\",]//g\' | tr -d \'[[:space:]]\'',
-    returnStdout: true
-  ).trim()
-}
-
 node {
 
-    def nodeHome = tool name: 'node:v6', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-    env.PATH = "${nodeHome}/bin:${env.PATH}"
+    stage 'checkout test'
+    sh 'bin/CI/testBuilder'
+    publishHTML([
+      allowMissing: false,
+      alwaysLinkToLastBuild: false,
+      keepAll: false, reportDir: './report/coverage/lcov-report',
+      reportFiles: 'index.html',
+      reportName: 'Coverage Report'
+    ])
+    publishHTML([
+      allowMissing: false,
+      alwaysLinkToLastBuild: false,
+      keepAll: false, reportDir: './report/linter/',
+      reportFiles: 'index.html',
+      reportName: 'Linter Report'
+    ])
 
-    stage 'Check Environment'
-    sh 'node -v'
-    sh 'npm -v'
-
-    stage 'checkout SCM'
-    checkout scm
-
-    stage 'install dependencies'
-    sh 'npm install'
-
-    stage 'Linter Test'
-    sh 'npm run test:linter:report'
-
-    stage 'Unit tests'
-    sh 'npm run test:unit:report'
-
-    stage 'Code coverage test'
-    sh 'npm run test:cover:report'
-
-    def version =  getPackageVersion()
 
     if ( env.BRANCH_NAME ==~ /.*develop.*/ ){
  
