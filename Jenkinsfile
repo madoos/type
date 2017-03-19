@@ -5,13 +5,14 @@ node {
     def GITHUB_USER = "madoos"
     def GITHUB_REPO = "type"
     def GITHUB_BRANCH = env.BRANCH_NAME
-     
+    def GITHUB_TOKEN = "ceabeb109bf09c3dcb5dee8483dafb27f1742c72" 
+
     stage("checkout SCM"){
       checkout scm
     }
 
     stage("Make Tests"){
-      sh "./bin/CI/testBuilder ${GITHUB_USER} ${GITHUB_REPO} ${GITHUB_BRANCH}"
+      sh "./bin/CI/testBuilder ${GITHUB_USER} ${GITHUB_REPO} ${GITHUB_BRANCH} ${GITHUB_TOKEN}"
     }
 
     stage("publish Reports"){
