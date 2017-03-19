@@ -16,3 +16,5 @@ Jenkinsfile
 
 #node
 /node_modules/
+
+test/report

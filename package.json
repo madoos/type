@@ -1,27 +1,27 @@
 {
-  "name":  "madoos-type",
+  "name": "madoos-type",
   "version": "0.0.6",
   "description": "Check the type of objects",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test:linter:show && npm run test:unit:show",
-    "test:report": "npm run test:linter:report && npm run test:unit:report && npm run test:cover:report",
+    "test": "npm run test:linter:report && npm run test:cover:report",
     "test:linter:show": "./bin/test/linter-show",
     "test:unit:show": "./bin/test/unit-show",
     "test:cover:show": "./bin/test/cover-show",
     "test:linter:report": "./bin/test/linter-report",
     "test:unit:report": "./bin/test/unit-report",
-    "test:cover:report": "./bin/test/cover-report"
+    "test:cover:report": "./bin/test/cover-report",
+    "serve:linter": "./bin/serve/serve-linter",
+    "serve:coverage": "./bin/serve/serve-coverage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/madoos/type.git"
   },
-
   "keywords": [
     "lib"
   ],
-   "author": {
+  "author": {
     "name": "Maurice Ronet Dominguez",
     "email": "maurice.ronet.dominguez@gmail.com",
     "url": "https://github.com/madoos/"
@@ -33,12 +33,12 @@
   "homepage": "https://github.com/madoos/type.git#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "http-server": "^0.9.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "standard": "^8.6.0"
   },
-
-  "standard":  {
+  "standard": {
     "env": {
       "node": true,
       "mocha": true
