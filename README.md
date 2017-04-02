@@ -1,6 +1,6 @@
 # madoos-type
 
-Check the type of objects
+_Check the type of objects._
 
 [![Build Status](https://travis-ci.org/madoos/type.svg?branch=master)](https://travis-ci.org/madoos/type)
 
