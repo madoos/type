@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Obtains the vertion of any string that is between <STRING>, for example 'release/<1.5.5>' = 1.5.5
+
+SOURCE=$1
+echo $SOURCE | grep -o -P '(?<=\<).*(?=\>)'

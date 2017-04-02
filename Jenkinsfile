@@ -5,7 +5,9 @@ node {
     def GITHUB_USER = "madoos"
     def GITHUB_REPO = "type"
     def GITHUB_BRANCH = env.BRANCH_NAME
-    def GITHUB_TOKEN =  env.MADOOS_TOKEN
+    def GITHUB_TOKEN =  env.GITHUB_TOKEN
+    def NPM_TOKEN = env.NPM_TOKEN
+    def CI_EMAIL = env.CI_EMAIL
 
     stage("checkout SCM"){
       checkout scm
@@ -40,6 +42,14 @@ node {
 
     }else if( env.BRANCH_NAME ==~ /.*PR.*/ ){
 
+
+    }else if( env.BRANCH_NAME ==~ /.*release.*/ ){
+
+      def PACKAGE_VERSION = sh (script: "./bin/CI/get-release ${GITHUB_BRANCH}", returnStdout: true)
+
+      stage("Publish package"){
+        sh "./bin/CI/npmPublisher ${GITHUB_USER} ${GITHUB_REPO} ${GITHUB_BRANCH} ${GITHUB_TOKEN} ${NPM_TOKEN} ${PACKAGE_VERSION} ${CI_EMAIL}"
+      }
 
     }
 
