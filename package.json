@@ -1,6 +1,6 @@
 {
   "name": "madoos-type",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Check the type of objects",
   "main": "index.js",
   "scripts": {
