@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.0.8](https://github.com/madoos/type/tree/v0.0.8) (2017-04-03)
+[Full Changelog](https://github.com/madoos/type/compare/v0.0.7...v0.0.8)
+
+**Merged pull requests:**
+
+- Updated to version 0.0.7 [\#5](https://github.com/madoos/type/pull/5) ([madoos](https://github.com/madoos))
+- Updated to version 0.0.7 [\#4](https://github.com/madoos/type/pull/4) ([madoos](https://github.com/madoos))
+
 ## [v0.0.7](https://github.com/madoos/type/tree/v0.0.7) (2017-04-03)
 **Implemented enhancements:**
 
