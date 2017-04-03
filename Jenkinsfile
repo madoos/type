@@ -7,7 +7,6 @@ node {
     def GITHUB_BRANCH = env.BRANCH_NAME
     def GITHUB_TOKEN =  env.GITHUB_TOKEN
     def NPM_TOKEN = env.NPM_TOKEN
-    def CI_EMAIL = env.CI_EMAIL
 
     stage("checkout SCM"){
       checkout scm
@@ -32,10 +31,10 @@ node {
         reportFiles: "index.html",
         reportName: "Linter Report"
       ])
-    } 
+    }
 
     if ( env.BRANCH_NAME ==~ /.*develop.*/ ){
- 
+
 
     }else if( env.BRANCH_NAME ==~ /.*master.*/ ){
 
@@ -48,15 +47,9 @@ node {
       def PACKAGE_VERSION = sh (script: "./bin/CI/get-release ${GITHUB_BRANCH}", returnStdout: true)
 
       stage("Publish package"){
-        sh "./bin/CI/npmPublisher ${GITHUB_USER} ${GITHUB_REPO} ${GITHUB_BRANCH} ${GITHUB_TOKEN} ${NPM_TOKEN} ${PACKAGE_VERSION} ${CI_EMAIL}"
+        sh "./bin/CI/npmPublisher ${GITHUB_USER} ${GITHUB_REPO} ${GITHUB_BRANCH} ${GITHUB_TOKEN} ${NPM_TOKEN} ${PACKAGE_VERSION}"
       }
 
     }
 
 }
-
-
-
-
-
-
