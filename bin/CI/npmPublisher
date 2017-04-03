@@ -8,6 +8,8 @@ NPM_TOKEN=$5
 PACKAGE_VERSION=$6
 CI_EMAIL=$7
 
+echo "***********> $*"
+
 docker run --rm\
   -e GITHUB_USER=$GITHUB_USER \
   -e GITHUB_REPO=$GITHUB_REPO \
@@ -15,6 +17,6 @@ docker run --rm\
   -e GITHUB_TOKEN=$GITHUB_TOKEN \
   -e NPM_TOKEN=$NPM_TOKEN \
   -e PACKAGE_VERSION=$PACKAGE_VERSION \
-  -e CI_EMAIL=$CI_EMAIL
+  -e CI_EMAIL=$CI_EMAIL \
   -e FORCE_COLOR=1 \
    madoos/node-npm-publisher:latest
