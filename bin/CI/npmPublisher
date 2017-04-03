@@ -17,6 +17,5 @@ docker run --rm\
   -e GITHUB_TOKEN=$GITHUB_TOKEN \
   -e NPM_TOKEN=$NPM_TOKEN \
   -e PACKAGE_VERSION=$PACKAGE_VERSION \
-  -e CI_EMAIL=$CI_EMAIL \
   -e FORCE_COLOR=1 \
    madoos/node-npm-publisher:latest
