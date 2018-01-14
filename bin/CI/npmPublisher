@@ -8,8 +8,6 @@ NPM_TOKEN=$5
 PACKAGE_VERSION=$6
 CI_EMAIL=$7
 
-echo "***********> $*"
-
 docker run --rm\
   -v /var/run/docker.sock:/var/run/docker.sock \
   -e GITHUB_USER=$GITHUB_USER \

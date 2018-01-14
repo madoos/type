@@ -6,6 +6,7 @@ GITHUB_BRANCH=$3
 GITHUB_TOKEN=$4
 
 docker run --rm\
+  -v /var/run/docker.sock:/var/run/docker.sock \
   -e GITHUB_USER=$GITHUB_USER \
   -e GITHUB_REPO=$GITHUB_REPO \
   -e GITHUB_BRANCH=$GITHUB_BRANCH \
